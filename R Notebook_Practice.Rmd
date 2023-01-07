@@ -1,0 +1,37 @@
+We will use the `mtcars dataset` to explore the *ggplot2* package in R 
+
+```{r}
+library('ggplot2')
+```
+Lets breakdown this code:
+**aes()** is a function that specifies desired graphing aesthetics. Within this function we are stating what variable our x and y axis will contain. 
+**geom_point()** will create a scatterplot.
+
+```{r}
+ggplot(mtcars, aes(x=mpg, y=wt))+geom_point()
+```
+
+Lets add a title and labels for the x and y axis!
+
+```{r}
+ggplot(mtcars, aes(x=mpg, y=wt))+geom_point()+ggtitle('Miles per Gallon vs. Weight')+ labs(x='Miles per Gallon', y='Weight')
+```
+
+Next lets center the title!
+
+```{r}
+ggplot(mtcars, aes(x=mpg, y=wt))+geom_point()+ggtitle('Miles per Gallon vs. Weight')+ labs(x='Miles per Gallon', y='Weight')+theme(plot.title=element_text(hjust=0.5))
+```
+
+Lets add a regression line using the function **geom_smooth()**. We will be using the method *lm* within this function to fit a linear model. 
+We will use the default values for this function (a confidence interval of 0.95 will be displayed)
+
+```{r}
+ggplot(mtcars, aes(x=mpg, y=wt))+geom_point()+ggtitle('Miles per Gallon vs. Weight')+ labs(x='Miles per Gallon', y='Weight')+theme(plot.title=element_text(hjust=0.5))+geom_smooth(method=lm)
+```
+
+Finally we will add a little color to the graph!
+
+```{r}
+ggplot(mtcars, aes(x=mpg, y=wt))+geom_point(color = 'navyblue')+ggtitle('Miles per Gallon vs. Weight')+ labs(x='Miles per Gallon', y='Weight')+theme(plot.title=element_text(hjust=0.5))+geom_smooth(method=lm, color='brown4', fill='rosybrown2')
+```
