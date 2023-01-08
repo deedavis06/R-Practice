@@ -7,6 +7,6 @@ data(iris)
 ggpairs(iris, aes(colour=Species))
 
 #make the text smaller for the correlation values
-ggpairs(iris, aes(colour=Species), upper = list(continuous = wrap("cor", size = 2.5)))
+ggpairs(iris, aes(colour=Species), upper = list(continuous = wrap("cor", size = 2.0)))
 
 
